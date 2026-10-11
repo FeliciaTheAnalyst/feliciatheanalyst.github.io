@@ -3284,8 +3284,12 @@ input, select, textarea {
 /* Intro */
 
 	#intro {
+		background-image: url("../../images/portfolio-bg.jpg.png");
+background-size: 100% 100%;
+background-position: top;
+background-repeat: no-repeat;
 		color: #ffffff;
-		padding: 8rem 4rem 6rem 4rem ;
+		padding: 14rem 4rem 6rem 4rem ;
 		-moz-align-items: center;
 		-webkit-align-items: center;
 		-ms-align-items: center;
@@ -4687,3 +4691,35 @@ input, select, textarea {
 		}
 
 	}
+/* Position and style the portfolio username */
+#intro p a .handle {
+    text-transform: lowercase;
+	 display: inline-block;
+     margin-top: 10px;
+}
+
+/* Keep navigation arrow centered */
+#intro .actions {
+    display: flex;
+    justify-content: center;
+}
+
+
+	/* Project Image Fix */
+#main .posts article img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+#main .posts article > a {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Position the Dear Sis Data heading lower */
+#intro h1 {
+    transform: translateY(180px);
+}
