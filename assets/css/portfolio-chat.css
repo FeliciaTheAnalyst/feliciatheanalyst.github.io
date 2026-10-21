@@ -1,0 +1,335 @@
+/* Dear Sis Data Assistant — approved emerald chat design */
+#portfolio-chat-button, #portfolio-chat-button *, #portfolio-chat-window, #portfolio-chat-window * { box-sizing: border-box; }
+#portfolio-chat-button {
+  position: fixed !important; right: 50px !important; bottom: 22px !important; z-index: 99999 !important;
+  display: flex !important; align-items: center !important; justify-content: flex-end !important;
+  width: 210px !important; max-width: calc(100vw - 28px) !important; height: 58px !important;
+  padding: 0 20px 0 76px !important; overflow: visible !important; border: 1px solid #55f5c4 !important;
+  border-radius: 999px !important; background: linear-gradient(115deg,#063c30,#087453 62%,#064536) !important;
+  color: #fff !important; font: 800 13px/1.1 "Segoe UI",Arial,sans-serif !important; letter-spacing: .5px !important;
+  white-space: nowrap !important; cursor: pointer !important; box-shadow: 0 0 22px rgba(0,224,164,.2),0 10px 28px rgba(0,0,0,.32) !important;
+  transition: transform .2s ease,box-shadow .2s ease !important;
+}
+#portfolio-chat-button:hover { transform: translateY(-2px) !important; box-shadow: 0 0 28px rgba(0,214,160,.32),0 12px 30px rgba(0,0,0,.36) !important; }
+#portfolio-chat-button img { position:absolute !important; left:-9px !important; top:-23px !important; width:92px !important; height:92px !important; max-width:none !important; object-fit:contain !important; border:0 !important; border-radius:0 !important; background:transparent !important; pointer-events:none !important; }
+#portfolio-chat-button span { color:#fff !important; white-space:nowrap !important; }
+#portfolio-chat-button.launcher-hidden { display:none !important; }
+
+#portfolio-chat-window {
+  display:none; position:fixed; z-index:99998; left:50%; top:50%; transform:translate(-50%,-50%);
+  width:min(500px,calc(100vw - 28px)); height:min(740px,calc(100vh - 24px)); min-height:0; overflow:hidden;
+  color:#f5fff9; font-family:Inter,"Segoe UI",Arial,sans-serif;
+  background:radial-gradient(ellipse at 18% 0%,rgba(0,103,73,.28),transparent 42%),linear-gradient(145deg,rgba(1,35,27,.99),rgba(0,18,15,.995));
+  border:2px solid #00dca9; border-radius:28px; box-shadow:0 0 22px rgba(0,230,173,.22),0 26px 70px rgba(0,0,0,.55);
+  backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+}
+#portfolio-chat-window.chat-open { display:flex; flex-direction:column; }
+#portfolio-chat-window.chat-expanded { width:min(600px,calc(100vw - 24px)); height:min(820px,calc(100vh - 24px)); }
+.portfolio-chat-header { position:relative; display:flex; align-items:center; flex:0 0 auto; gap:12px; min-height:92px; padding:10px 112px 10px 16px; border-bottom:1px solid rgba(0,224,164,.35); background:linear-gradient(110deg,rgba(0,85,61,.72),rgba(1,28,22,.97)); }
+.portfolio-chat-header-avatar { display:block; flex:0 0 68px; width:68px; height:68px; object-fit:contain; filter:drop-shadow(0 0 10px rgba(0,255,190,.2)); }
+.portfolio-chat-brand-text { min-width:0; }
+.portfolio-chat-brand-text h3 { margin:0 0 7px; color:#fff; font-size:22px; font-weight:850; line-height:1.12; letter-spacing:.4px; text-transform:uppercase; }
+.portfolio-chat-brand-text p { margin:0; color:#d6eee5; font-size:12px; line-height:1.4; }
+.portfolio-chat-online-dot { display:inline-block; width:8px; height:8px; margin-right:6px; border-radius:50%; background:#00efad; box-shadow:0 0 13px rgba(0,239,173,.65); vertical-align:middle; }
+.portfolio-chat-window-actions { position:absolute; top:20px; right:14px; display:flex; gap:6px; }
+.portfolio-chat-window-actions button { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; padding:0; border:1px solid rgba(0,225,172,.85); border-radius:12px; color:#fff; background:rgba(0,24,19,.9); font:500 23px/1 "Segoe UI",Arial,sans-serif; cursor:pointer; box-shadow:inset 0 0 0 1px rgba(255,255,255,.04); }
+.portfolio-chat-window-actions button:hover { border-color:#ffe88b; background:rgba(0,93,67,.85); }
+.portfolio-chat-content { display:flex; flex:1 1 auto; flex-direction:column; min-height:0; overflow:hidden; }
+.portfolio-chat-messages-wrap { display:flex; flex:1 1 auto; min-height:0; overflow:hidden; }
+#portfolio-chat-messages { display:flex; flex:1 1 auto; flex-direction:column; align-items:stretch; gap:13px; min-height:0; overflow-y:auto; padding:14px 12px 12px; scrollbar-width:thin; scrollbar-color:#00a982 #06271f; }
+#portfolio-chat-messages::-webkit-scrollbar { width:6px; }
+#portfolio-chat-messages::-webkit-scrollbar-track { background:#06271f; border-radius:8px; }
+#portfolio-chat-messages::-webkit-scrollbar-thumb { background:#00a982; border-radius:8px; border:2px solid #06271f; }
+.portfolio-chat-row { display:flex; align-items:flex-start; gap:9px; width:100%; margin:0; }
+.portfolio-chat-row.bot { flex-direction:row; }
+.portfolio-chat-row.user { justify-content:flex-end; align-items:center; }
+.portfolio-chat-avatar { display:block; flex:0 0 42px; width:42px; height:42px; object-fit:contain; filter:drop-shadow(0 0 7px rgba(0,230,165,.18)); }
+.portfolio-chat-user-avatar { display:flex; align-items:center; justify-content:center; flex:0 0 34px; width:34px; height:34px; border:1px solid #00cfa0; border-radius:50%; background:rgba(0,20,17,.95); box-shadow:0 0 0 2px rgba(0,255,190,.05); }
+.portfolio-chat-user-avatar svg { width:21px; height:21px; fill:#ffe18a; }
+.portfolio-chat-message { max-width:calc(100% - 52px); padding:12px 14px; border-radius:17px; color:#f4fff9; font-size:14px; line-height:1.48; overflow-wrap:anywhere; box-shadow:inset 0 1px rgba(255,255,255,.04); }
+.portfolio-chat-message.bot { border:1px solid rgba(0,226,164,.75); border-top-left-radius:9px; background:linear-gradient(135deg,rgba(3,54,42,.99),rgba(1,32,26,.99)); }
+.portfolio-chat-message.user { max-width:78%; color:#00372a; background:linear-gradient(120deg,#78f5c9,#18dfaa); border:1px solid #9dffdf; border-bottom-right-radius:9px; }
+.portfolio-chat-greeting-title { display:block; margin-bottom:7px; font-weight:850; color:#fff; }
+.portfolio-chat-shortcuts { flex:0 0 auto; padding:8px 12px 12px; }
+.portfolio-chat-section-title { display:flex; align-items:center; gap:8px; margin:0 0 10px; color:#ffe18a; font-size:13px; font-weight:850; letter-spacing:1.2px; }
+.portfolio-chat-section-title span { font-size:21px; line-height:1; }
+.portfolio-chat-suggestions-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+.portfolio-chat-suggestion { display:grid; grid-template-columns:28px minmax(0,1fr) 12px; align-items:center; gap:7px; min-width:0; min-height:48px; padding:7px 10px; border:1px solid rgba(0,226,164,.72); border-radius:14px; color:#f5fff9 !important; background:linear-gradient(135deg,rgba(4,62,47,.99),rgba(0,29,24,.99)); font:800 11px/1.25 "Segoe UI",Arial,sans-serif; text-align:left; cursor:pointer; transition:border-color .18s ease,transform .18s ease,box-shadow .18s ease; }
+.portfolio-chat-suggestion:hover { transform:translateY(-1px); border-color:#ffe88b; box-shadow:0 0 14px rgba(0,225,172,.12); }
+.suggestion-icon { color:#ffe18a; font-size:21px; text-align:center; }
+.suggestion-label { min-width:0; white-space:normal; overflow-wrap:anywhere; line-height:1.25; text-transform:uppercase; letter-spacing:.5px; }
+.portfolio-chat-suggestion b { color:#fff; font-size:22px; font-weight:400; text-align:right; }
+#portfolio-chat-window.has-started .portfolio-chat-shortcuts { display:none; }
+#portfolio-chat-form { display:flex; align-items:center; flex:0 0 auto; gap:8px; padding:10px 10px 12px; border-top:1px solid rgba(0,224,164,.25); background:rgba(0,20,16,.98); }
+.portfolio-chat-paperclip { display:flex; align-items:center; justify-content:center; flex:0 0 28px; height:48px; margin-right:-7px; color:#f4fff9; border:1px solid rgba(0,0,0,0); font-size:24px; transform:rotate(-35deg); }
+#portfolio-chat-input { display:block; flex:1 1 auto; width:100%; min-width:0; height:48px; padding:0 13px; border:1px solid #43f5ce; border-radius:15px; outline:none; color:#fff; background:rgba(2,42,32,.99); font:400 14px/1.3 "Segoe UI",Arial,sans-serif; }
+#portfolio-chat-input::placeholder { color:#b8c9c3; opacity:1; }
+#portfolio-chat-input:focus { border-color:#ffe88b; box-shadow:0 0 0 3px rgba(255,232,139,.09); }
+.portfolio-chat-clear { display:inline-flex; align-items:center; justify-content:center; gap:12px; flex:0 0 auto; min-width:72px; height:48px; padding:0 12px; border:1px solid #5df7d1; border-radius:15px; color:#fff !important; background:linear-gradient(135deg,rgba(3,48,40,.99),rgba(1,28,25,.99)); font:700 13px/1 "Segoe UI",Arial,sans-serif; cursor:pointer; transition:border-color .18s ease,background .18s ease,transform .18s ease; }
+.portfolio-chat-clear span { color:#fff !important; }
+.portfolio-chat-clear .clear-icon { font-size:18px; line-height:1; }
+.portfolio-chat-clear:hover { border-color:#ffe88b; background:rgba(0,105,76,.95); transform:translateY(-1px); }
+.portfolio-chat-send { display:inline-flex; align-items:center; justify-content:center; flex:0 0 48px; height:50px; padding:0; border:2px solid rgba(151,255,222,.95); border-radius:15px; color:#003b2c; background:linear-gradient(135deg,#72f5c4,#00c98f); font:900 25px/1 "Segoe UI",Arial,sans-serif; cursor:pointer; }
+.portfolio-chat-send:hover { filter:brightness(1.08); transform:translateY(-1px); }
+
+@media (max-width:900px) {
+  #portfolio-chat-window { width:calc(100vw - 20px); height:calc(100vh - 20px); border-radius:22px; }
+  .portfolio-chat-header { min-height:96px; gap:12px; padding:12px 142px 12px 16px; }
+  .portfolio-chat-header-avatar { flex-basis:72px; width:72px; height:72px; }
+  .portfolio-chat-brand-text h3 { font-size:22px; }
+  .portfolio-chat-brand-text p { font-size:13px; }
+  .portfolio-chat-online-dot { width:9px; height:9px; margin-right:5px; }
+  .portfolio-chat-window-actions { top:18px; right:12px; gap:5px; }
+  .portfolio-chat-window-actions button { width:38px; height:38px; border-radius:12px; font-size:24px; }
+  #portfolio-chat-messages { gap:13px; padding:14px 12px; }
+  .portfolio-chat-row { gap:9px; }
+  .portfolio-chat-avatar { flex-basis:42px; width:42px; height:42px; }
+  .portfolio-chat-user-avatar { flex-basis:34px; width:34px; height:34px; }
+  .portfolio-chat-user-avatar svg { width:22px; height:22px; }
+  .portfolio-chat-message { max-width:calc(100% - 51px); padding:12px 14px; border-radius:17px; font-size:14px; }
+  .portfolio-chat-message.user { max-width:78%; }
+  .portfolio-chat-shortcuts { padding:8px 12px 12px; }
+  .portfolio-chat-section-title { gap:8px; margin-bottom:10px; font-size:12px; }
+  .portfolio-chat-section-title span { font-size:20px; }
+  .portfolio-chat-suggestions-grid { gap:7px; }
+  .portfolio-chat-suggestion { grid-template-columns:24px minmax(0,1fr) 10px; gap:6px; min-height:46px; padding:7px 9px; border-radius:13px; font-size:11px; }
+  .suggestion-icon { font-size:19px; }
+  .portfolio-chat-suggestion b { font-size:22px; }
+  #portfolio-chat-form { gap:7px; padding:10px 10px 12px; }
+  .portfolio-chat-paperclip { display:none; }
+  #portfolio-chat-input { height:48px; padding:0 12px; border-radius:14px; font-size:13px; }
+  .portfolio-chat-clear { min-width:76px; height:48px; gap:5px; padding:0 9px; border-radius:14px; font-size:12px; }
+  .portfolio-chat-clear .clear-icon { font-size:16px; }
+  .portfolio-chat-send { flex-basis:48px; height:48px; border-radius:14px; font-size:24px; }
+}
+@media (max-width:430px) {
+  .portfolio-chat-header { padding-right:100px; }
+  .portfolio-chat-header-avatar { flex-basis:48px; width:48px; height:48px; }
+  .portfolio-chat-brand-text h3 { font-size:16px; }
+  .portfolio-chat-brand-text p { font-size:10px; }
+  .portfolio-chat-window-actions button { width:30px; height:30px; font-size:19px; }
+  .portfolio-chat-suggestion { grid-template-columns:17px minmax(0,1fr) 8px; gap:4px; font-size:9px; padding:6px; }
+  .suggestion-icon { font-size:15px; }
+  .portfolio-chat-clear { min-width:62px; font-size:10px; }
+  .portfolio-chat-clear .clear-icon { display:none; }
+}
+@media (max-height:650px) and (min-width:901px) {
+  #portfolio-chat-window { height:calc(100vh - 20px); }
+  .portfolio-chat-header { min-height:88px; }
+  .portfolio-chat-header-avatar { width:72px; height:72px; flex-basis:72px; }
+  .portfolio-chat-brand-text h3 { font-size:23px; }
+  .portfolio-chat-brand-text p { font-size:14px; }
+  .portfolio-chat-window-actions button { width:42px; height:42px; font-size:25px; border-radius:14px; }
+  .portfolio-chat-message { font-size:16px; padding:14px 17px; }
+  .portfolio-chat-avatar { width:52px; height:52px; flex-basis:52px; }
+  .portfolio-chat-suggestion { min-height:52px; font-size:13px; }
+  #portfolio-chat-input { height:58px; font-size:16px; }
+  .portfolio-chat-clear { height:58px; min-width:110px; font-size:16px; }
+  .portfolio-chat-send { height:60px; flex-basis:64px; font-size:30px; }
+}
+
+/* FINAL APPROVED LOOK: right-side floating glass panel with sculpted 3D chat bubbles */
+#portfolio-chat-window {
+  left: auto !important;
+  right: clamp(12px, 2.2vw, 32px) !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: min(460px, calc(100vw - 28px)) !important;
+  height: min(800px, calc(100vh - 24px)) !important;
+  border: 1.5px solid rgba(0, 245, 190, .9) !important;
+  border-radius: 30px !important;
+  background: rgba(0, 22, 18, .10) !important;
+  box-shadow: 0 0 24px rgba(0, 245, 190, .20), 0 28px 70px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.12) !important;
+  backdrop-filter: blur(3px) saturate(125%) !important;
+  -webkit-backdrop-filter: blur(3px) saturate(125%) !important;
+}
+#portfolio-chat-window.chat-expanded {
+  width: min(460px, calc(100vw - 28px)) !important;
+  height: min(900px, calc(100vh - 24px)) !important;
+}
+/* Keep the original rich, dark emerald header. */
+.portfolio-chat-header {
+  min-height: 100px !important;
+  padding: 4px 100px 12px 16px !important;
+  gap: 14px !important;
+  border-bottom: 1px solid rgba(0, 240, 183, .5) !important;
+  border-radius: 28px 28px 0 0 !important;
+  background: linear-gradient(112deg, rgba(0, 78, 57, .98), rgba(0, 35, 27, .98) 68%, rgba(0, 25, 21, .98)) !important;
+  box-shadow: 0 9px 24px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.08) !important;
+}
+.portfolio-chat-header-avatar { width: 76px !important; height: 76px !important; flex-basis: 76px !important; }
+.portfolio-chat-brand-text h3 { font-size: 23px !important; letter-spacing: .7px !important; }
+.portfolio-chat-brand-text p {
+    font-size: 12px !important;
+    white-space: nowrap !important;
+    letter-spacing: -0.3px !important;
+}.portfolio-chat-window-actions { top: 24px !important; right: 16px !important; gap: 8px !important; }
+.portfolio-chat-window-actions button {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    padding: 0 !important;
+    border-radius: 11px !important;
+    color: #ffffff !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    opacity: 1 !important;
+  
+  background: linear-gradient(145deg, rgba(0,20,18,.95), rgba(3,48,39,.88)) !important;
+  border: 1px solid rgba(0, 238, 185, .9) !important;
+  box-shadow: 0 5px 12px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.12) !important;
+}
+/* The message stage itself is transparent; only the individual bubbles carry the glass effect. */
+.portfolio-chat-content,
+.portfolio-chat-messages-wrap,
+#portfolio-chat-messages {
+  background: transparent !important;
+}
+.portfolio-chat-content { min-height: 0 !important; }
+.portfolio-chat-messages-wrap { flex: 1 1 auto !important; }
+#portfolio-chat-messages {
+  gap: 22px !important;
+  padding: 22px 18px 18px !important;
+  scrollbar-color: rgba(0, 232, 180, .85) transparent !important;
+  scrollbar-width: thin !important;
+}
+#portfolio-chat-messages::-webkit-scrollbar-track { background: transparent !important; }
+#portfolio-chat-messages::-webkit-scrollbar-thumb { background: linear-gradient(#00f0ba, #008e70) !important; border: 1px solid rgba(255,255,255,.2) !important; }
+.portfolio-chat-row { gap: 12px !important; }
+.portfolio-chat-avatar {
+  width: 54px !important; height: 54px !important; flex-basis: 54px !important;
+  filter: drop-shadow(0 5px 7px rgba(0,0,0,.45)) drop-shadow(0 0 8px rgba(0,255,195,.22)) !important;
+}
+.portfolio-chat-message {
+  padding: 17px 20px !important;
+  border-radius: 25px !important;
+  font-size: 16px !important;
+  line-height: 1.55 !important;
+  box-shadow: 0 12px 24px rgba(0,0,0,.34), inset 0 2px 0 rgba(255,255,255,.19), inset 0 -5px 12px rgba(0,0,0,.16) !important;
+  backdrop-filter: blur(15px) saturate(145%) !important;
+  -webkit-backdrop-filter: blur(15px) saturate(145%) !important;
+}
+.portfolio-chat-message.bot {
+  border: 1px solid rgba(83, 255, 218, .95) !important;
+  border-top-left-radius: 13px !important;
+  color: #f8fffd !important;
+  background: linear-gradient(145deg, rgba(16, 83, 69, .78), rgba(0, 35, 29, .84) 55%, rgba(4, 57, 47, .78)) !important;
+  box-shadow: 0 13px 24px rgba(0,0,0,.35), 0 0 15px rgba(0,255,194,.13), inset 0 2px 2px rgba(255,255,255,.28), inset 0 -8px 14px rgba(0,0,0,.22) !important;
+  position: relative !important;
+}
+.portfolio-chat-message.bot::before {
+  content: ""; position: absolute; inset: 1px 12px auto 12px; height: 1px; border-radius: 50%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.72), transparent); pointer-events: none;
+}
+.portfolio-chat-message.user {
+  max-width: 80% !important;
+  padding: 15px 20px !important;
+  color: #00392d !important;
+  border: 1px solid rgba(191, 255, 235, .98) !important;
+  border-bottom-right-radius: 10px !important;
+  background: linear-gradient(135deg, rgba(139,255,221,.98), rgba(37,231,183,.96) 58%, rgba(0,203,157,.98)) !important;
+  box-shadow: 0 12px 22px rgba(0,0,0,.28), 0 0 17px rgba(51,255,201,.2), inset 0 2px 2px rgba(255,255,255,.75), inset 0 -6px 10px rgba(0,111,81,.12) !important;
+}
+.portfolio-chat-user-avatar {
+  width: 42px !important; height: 42px !important; flex-basis: 42px !important;
+  border: 1px solid #00e9b3 !important; background: linear-gradient(145deg, rgba(0,20,17,.98), rgba(0,50,39,.94)) !important;
+  box-shadow: 0 5px 14px rgba(0,0,0,.4), 0 0 0 2px rgba(0,255,190,.09), inset 0 1px 0 rgba(255,255,255,.12) !important;
+}
+.portfolio-chat-user-avatar svg { width: 25px !important; height: 25px !important; fill: #ffe18a !important; }
+.portfolio-chat-greeting-title { font-size: 17px !important; margin-bottom: 8px !important; }
+/* Keep quick questions visible, with glassy raised controls like the approved mockup. */
+#portfolio-chat-window.has-started .portfolio-chat-shortcuts { display: block !important; }
+.portfolio-chat-shortcuts { padding: 12px 18px 16px !important; }
+.portfolio-chat-section-title { font-size: 15px !important; margin-bottom: 13px !important; }
+.portfolio-chat-section-title span { font-size: 25px !important; }
+.portfolio-chat-suggestions-grid { gap: 10px !important; }
+.portfolio-chat-suggestion {
+  min-height: 50px !important; padding: 10px 14px !important; gap: 9px !important;
+  grid-template-columns: 32px minmax(0,1fr) 14px !important; border-radius: 19px !important;
+  border: 1px solid rgba(0, 244, 190, .88) !important; color: #fff !important;
+  background: linear-gradient(145deg, rgba(8, 73, 59, .88), rgba(0, 30, 25, .88)) !important;
+  box-shadow: 0 8px 15px rgba(0,0,0,.28), inset 0 2px 1px rgba(255,255,255,.16), inset 0 -5px 10px rgba(0,0,0,.22) !important;
+  font-size: 12px !important; letter-spacing: .45px !important;
+}
+.portfolio-chat-suggestion:hover { transform: translateY(-2px) !important; box-shadow: 0 12px 20px rgba(0,0,0,.3), 0 0 18px rgba(0,255,195,.18), inset 0 2px 1px rgba(255,255,255,.2) !important; }
+.suggestion-icon { font-size: 24px !important; text-shadow: 0 2px 6px rgba(255,214,99,.25) !important; }
+.portfolio-chat-suggestion b { font-size: 25px !important; }
+#portfolio-chat-form {
+  gap: 10px !important; padding: 4px 16px 2px !important;
+  border-top: 1px solid rgba(0,238,182,.28) !important;
+  background: linear-gradient(180deg, rgba(0,25,21,.45), rgba(0,20,17,.72)) !important;
+  backdrop-filter: blur(12px) !important; -webkit-backdrop-filter: blur(12px) !important;
+}
+.portfolio-chat-paperclip { flex-basis: 28px !important; color: #fff !important; font-size: 27px !important; }
+#portfolio-chat-input {
+  height: 50px !important; padding: 0 17px !important; border-radius: 19px !important;
+  border: 1px solid rgba(91,255,218,.95) !important; color: #fff !important;
+  background: linear-gradient(145deg, rgba(0,46,36,.72), rgba(0,23,20,.78)) !important;
+  box-shadow: inset 0 2px 7px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.1) !important;
+  font-size: 15px !important; backdrop-filter: blur(10px) !important;
+}
+.portfolio-chat-clear {
+  min-width: 112px !important; height: 40px !important; padding: 0 16px !important; gap: 10px !important;
+  border-radius: 19px !important; color: #fff !important; border: 1px solid rgba(227,255,246,.78) !important;
+  background: linear-gradient(145deg, rgba(0,52,43,.78), rgba(0,23,21,.86)) !important;
+  box-shadow: 0 8px 15px rgba(0,0,0,.28), inset 0 2px 1px rgba(255,255,255,.17), inset 0 -5px 10px rgba(0,0,0,.2) !important;
+  font-size: 15px !important; letter-spacing: .4px !important;
+}
+.portfolio-chat-clear span, .portfolio-chat-clear .clear-icon { color: #fff !important; }
+.portfolio-chat-send {
+  height: 50px !important; flex-basis: 62px !important; border-radius: 20px !important;
+  background: linear-gradient(135deg, #78ffcf, #00c997 80%) !important;
+  box-shadow: 0 8px 18px rgba(0,0,0,.28), 0 0 14px rgba(0,255,194,.18), inset 0 2px 2px rgba(255,255,255,.75), inset 0 -5px 9px rgba(0,116,82,.18) !important;
+}
+@media (max-width: 760px) {
+  #portfolio-chat-window, #portfolio-chat-window.chat-expanded {
+    right: 10px !important; top: 10px !important; bottom: 10px !important;
+    transform: none !important; width: calc(100vw - 20px) !important; height: calc(100dvh - 20px) !important;
+    border-radius: 22px !important;
+  }
+  .portfolio-chat-header { min-height: 88px !important; padding: 10px 122px 10px 12px !important; gap: 9px !important; }
+  .portfolio-chat-header-avatar { width: 58px !important; height: 58px !important; flex-basis: 58px !important; }
+  .portfolio-chat-brand-text h3 { font-size: 17px !important; }
+  .portfolio-chat-brand-text p { font-size: 11px !important; }
+  .portfolio-chat-window-actions { top: 18px !important; right: 10px !important; gap: 5px !important; }
+  .portfolio-chat-window-actions button { width: 32px !important; height: 34px !important; border-radius: 11px !important; font-size: 20px !important; }
+  #portfolio-chat-messages { padding: 14px 10px !important; gap: 15px !important; }
+  .portfolio-chat-avatar { width: 38px !important; height: 38px !important; flex-basis: 38px !important; }
+  .portfolio-chat-message { padding: 12px 13px !important; font-size: 13px !important; border-radius: 19px !important; }
+  .portfolio-chat-greeting-title { font-size: 14px !important; }
+  .portfolio-chat-shortcuts { padding: 8px 10px 12px !important; }
+  .portfolio-chat-section-title { font-size: 12px !important; margin-bottom: 9px !important; }
+  .portfolio-chat-suggestion { min-height: 48px !important; padding: 7px 8px !important; grid-template-columns: 23px minmax(0,1fr) 10px !important; gap: 5px !important; border-radius: 14px !important; font-size: 10px !important; }
+  .suggestion-icon { font-size: 18px !important; }
+  #portfolio-chat-form { padding: 5px !important; gap: 4px !important; }
+  .portfolio-chat-paperclip { display: none !important; }
+  #portfolio-chat-input { height: 48px !important; font-size: 13px !important; padding: 0 11px !important; border-radius: 14px !important; }
+  .portfolio-chat-clear { min-width: 66px !important; height: 48px !important; padding: 0 8px !important; gap: 5px !important; font-size: 11px !important; border-radius: 13px !important; }
+  .portfolio-chat-clear .clear-icon { font-size: 14px !important; }
+  .portfolio-chat-send { height: 48px !important; flex-basis: 46px !important; border-radius: 14px !important; font-size: 22px !important; }
+}
+
+
+/* Dear Sis Data — focused launcher refinement (October 2026)
+   Only changes the floating Ask Felicia AI button and avatar position.
+   The chat window, messages, and assistant behaviour remain unchanged. */
+#portfolio-chat-button {
+  bottom: 34px !important;
+  background: linear-gradient(135deg, #fff3d6 0%, #f4d58b 58%, #e7bd62 100%) !important;
+  border: 1px solid #ffe8ad !important;
+  color: #073b2c !important;
+  box-shadow: 0 0 20px rgba(232, 190, 98, .24),
+              0 10px 28px rgba(0, 0, 0, .32),
+              inset 0 1px 0 rgba(255, 255, 255, .8) !important;
+}
+#portfolio-chat-button span {
+  color: #073b2c !important;
+}
+#portfolio-chat-button img {
+  top: -34px !important;
+}
+#portfolio-chat-button:hover {
+  box-shadow: 0 0 26px rgba(244, 213, 139, .36),
+              0 12px 30px rgba(0, 0, 0, .36),
+              inset 0 1px 0 rgba(255, 255, 255, .9) !important;
+}

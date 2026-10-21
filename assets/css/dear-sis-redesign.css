@@ -1,0 +1,227 @@
+:root{--bg:#03150d;--green:#00c987;--mint:#8af5ce;--text:#f6fff9;--muted:#c4d9cd;--line:rgba(104,255,194,.42)}
+html{scroll-behavior:smooth;scroll-padding-top:90px}body,#wrapper.ds-site{margin:0!important;max-width:none!important;width:100%;background:var(--bg)!important;color:var(--text)!important;font-family:Inter,"Segoe UI",Arial,sans-serif!important}body:before,body:after{display:none!important}#wrapper.ds-site{padding:0;box-shadow:none;overflow:hidden}.ds-site a{border:0;color:inherit}
+.ds-topbar{position:relative;z-index:5;width:calc(100% - 7.5%);margin:14px auto 0;padding:10px 22px 10px 28px;min-height:74px;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:16px;border:1px solid var(--line);border-radius:25px;background:rgba(0,25,17,.9);box-shadow:inset 0 0 22px rgba(0,219,143,.08);backdrop-filter:blur(16px)}.ds-brand{display:flex;align-items:center;gap:8px;flex-shrink:0}.ds-signature{font:italic 2rem "Segoe Script","Brush Script MT",cursive}.ds-divider{color:var(--mint);font-size:1.5rem}.ds-brand-name{font-size:1.05rem;font-weight:750;white-space:nowrap}.ds-brand-name small{display:block;text-align:center;font-size:.48rem;letter-spacing:.2em;color:#d0e8dc}.ds-navigation{display:flex;align-items:center;justify-content:center;gap:3px;padding:5px;border:1px solid rgba(91,202,154,.15);border-radius:999px;background:rgba(0,17,11,.45)}.ds-navigation a{padding:12px 11px;border-radius:999px;font-size:.75rem;white-space:nowrap}.ds-navigation a:hover,.ds-navigation a.is-active{background:linear-gradient(120deg,#00bd82,#006c4a)}.ds-socials{display:flex;gap:8px;padding-left:15px;border-left:1px solid var(--line)}.ds-socials a{width:38px;height:38px;display:grid;place-items:center;border:1px solid var(--green);border-radius:50%;font-weight:800}
+.ds-hero{position:relative;min-height:510px;padding:30px 4.5% 20px;box-sizing:border-box;display:grid;grid-template-columns:minmax(220px,.82fr) minmax(380px,1.15fr) minmax(140px,.62fr);align-items:center;gap:20px;background:linear-gradient(120deg,#03150d 0%,#073522 55%,#021109 100%);isolation:isolate}.ds-hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(2,19,12,.7),transparent 30%)}.ds-hero-portrait{align-self:end;display:flex;justify-content:center;align-items:end;min-height:390px;height:100%}.ds-hero-portrait img{display:block;width:min(100%,430px);height:465px;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 10px 30px rgba(0,0,0,.3))}.ds-hero-copy{z-index:1;padding-top:10px}.ds-eyebrow{margin:0 0 10px!important;color:#f0fff7!important;font-size:.65rem!important;font-weight:750!important;letter-spacing:.08em!important;line-height:1.6;text-transform:uppercase}.ds-hero-copy h1{margin:0!important;color:white!important;font-size:clamp(2.8rem,4.1vw,4.2rem)!important;line-height:1.03!important;letter-spacing:-.055em!important;text-transform:none!important}.ds-hero-copy h1 span,.ds-project-heading h2 span,.ds-about h2 span{color:var(--green)!important}.ds-script-title{margin:0 0 10px!important;color:var(--mint)!important;font:italic clamp(2.4rem,4vw,4rem) "Segoe Script","Brush Script MT",cursive!important;line-height:1.25;white-space:nowrap}.ds-hero-description{max-width:430px;margin:0 0 20px!important;color:#e2eee7!important;font-size:1.05rem;line-height:1.45}.ds-cta,.ds-view-all{display:inline-flex;align-items:center;justify-content:space-between;gap:18px;padding:7px 8px 7px 20px;border:1px solid var(--line)!important;border-radius:999px;background:linear-gradient(110deg,rgba(0,160,104,.9),rgba(0,72,47,.92));font-size:.9rem;font-weight:750}.ds-cta span,.ds-view-all span{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:var(--mint);color:#003d28;font-size:1.5rem}.ds-skill-tiles{display:grid;grid-template-columns:repeat(4,minmax(65px,1fr));gap:5px;margin-top:12px}.ds-skill-tiles div{min-height:84px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;padding:7px 3px;text-align:center;border:1px solid rgba(78,255,182,.38);border-radius:14px;background:rgba(0,35,23,.8)}.ds-skill-tiles b{color:var(--mint);font-size:1.5rem}.ds-skill-tiles small{font-size:.62rem;line-height:1.25;color:#effff6}.ds-hero-message{align-self:start;justify-self:end;margin-top:18px;padding:22px 18px;border:1px solid var(--line);border-radius:18px;background:rgba(0,30,19,.76);color:#e9fff3;font-size:.78rem;letter-spacing:.08em;line-height:1.8;white-space:nowrap}
+.ds-stats{position:relative;z-index:2;width:94%;margin:0 auto 25px;padding:9px 16px;box-sizing:border-box;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:20px;background:rgba(0,34,22,.88);box-shadow:inset 0 0 24px rgba(0,210,132,.08);backdrop-filter:blur(12px)}.ds-stat{display:flex;align-items:center;justify-content:center;gap:12px;padding:5px 12px;border-right:1px solid rgba(116,222,173,.32)}.ds-stat:last-child{border:0}.ds-stat i{width:54px;height:54px;display:grid;place-items:center;border:1px solid rgba(0,210,132,.4);border-radius:50%;color:var(--mint);font-size:1.7rem;font-style:normal}.ds-stat p{display:flex;flex-direction:column;margin:0!important;line-height:1.2}.ds-stat strong{font-size:1.65rem;color:white}.ds-stat small{font-size:.73rem;color:#e0eee6}.ds-stat:last-child strong{font-size:.92rem}
+.ds-projects{padding:0 3% 45px}.ds-project-heading{display:grid;grid-template-columns:1.05fr 1fr auto;align-items:center;gap:22px;margin-bottom:17px}.ds-project-heading h2{margin:0!important;font-size:2.25rem!important;letter-spacing:-.05em;color:#f7fff9;text-transform:none!important}.ds-project-heading>p{margin:0!important;color:#c8d9ce;font-size:.83rem;line-height:1.55}.ds-view-all{min-width:155px;padding:5px 6px 5px 14px;font-size:.77rem;gap:9px}.ds-view-all span{width:31px;height:31px;font-size:1.2rem}.ds-project-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}.ds-project-card{position:relative;min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,rgba(3,39,25,.97),rgba(0,19,12,.97));box-shadow:inset 0 0 22px rgba(0,212,135,.035);transition:transform .2s,border-color .2s}.ds-project-card:hover{transform:translateY(-4px);border-color:rgba(126,255,201,.8)}.ds-project-image{position:relative;display:block;height:145px;margin:9px 9px 0!important;overflow:hidden;border-radius:10px;background:#0b2d1e}.ds-project-image img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .3s}.ds-project-card:hover .ds-project-image img{transform:scale(1.04)}.ds-project-image b{position:absolute;top:8px;left:8px;width:40px;height:40px;display:grid;place-items:center;border-radius:10px;background:#e5fff1;color:#09965f;font-size:1.45rem;box-shadow:0 5px 15px #0004}.ds-card-copy{position:relative;min-height:125px;padding:12px 48px 14px 13px}.ds-card-copy small{color:var(--mint);font-size:.53rem;font-weight:800;letter-spacing:.1em}.ds-card-copy h3{margin:5px 0!important;color:white!important;font-size:.98rem!important;line-height:1.25;font-weight:750;text-transform:none!important}.ds-card-copy p{margin:0!important;color:#d3e3d9;font-size:.75rem;line-height:1.4}.ds-arrow{position:absolute;right:11px;bottom:24px;width:35px;height:35px;display:grid;place-items:center;border:1px solid var(--green)!important;border-radius:50%;font-size:1.35rem}.ds-more-projects{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:20px}.ds-more-projects a{padding:10px 16px;border:1px solid var(--line)!important;border-radius:999px;color:var(--mint)!important;font-size:.82rem}
+.ds-about{display:grid;grid-template-columns:1fr 1.4fr auto;align-items:center;gap:25px;padding:32px 5%;border-top:1px solid rgba(83,226,159,.2);background:rgba(0,31,20,.6)}.ds-about>div>small,.ds-contact>div>small{color:var(--mint);font-size:.65rem;font-weight:800;letter-spacing:.14em}.ds-about h2{margin:7px 0 0!important;color:white;font-size:2rem!important;line-height:1.1;text-transform:none!important}.ds-about>p{margin:0!important;color:#c4d8cb;font-size:.88rem;line-height:1.7}.ds-about>a{padding:12px 17px;border:1px solid var(--line)!important;border-radius:999px;color:var(--mint);white-space:nowrap}.ds-contact{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:22px;padding:27px 5%;border-top:1px solid rgba(83,226,159,.22);background:#03150d}.ds-contact p{margin:5px 0 0!important;color:#c0d4c8;font-size:.76rem;line-height:1.6}.ds-contact>div:first-child strong{font-size:1.35rem}.ds-contact>div:first-child strong span{color:var(--green)}.ds-contact a{color:#d6f9e4}
+@media(max-width:1200px){.ds-topbar{width:96%;padding:10px 14px;gap:8px}.ds-signature{font-size:1.6rem}.ds-brand-name{font-size:.9rem}.ds-navigation a{padding:10px 8px;font-size:.67rem}.ds-socials{padding-left:8px}.ds-socials a{width:33px;height:33px}.ds-hero{grid-template-columns:minmax(180px,.7fr) minmax(330px,1.2fr) minmax(110px,.5fr);padding-left:3%;padding-right:3%}.ds-hero-message{padding:15px 10px;font-size:.63rem}.ds-project-grid{gap:10px}.ds-project-image{height:125px}}
+@media(max-width:900px){.ds-topbar{flex-wrap:wrap;justify-content:center}.ds-brand{margin-right:auto}.ds-navigation{order:3;width:100%;overflow-x:auto;justify-content:flex-start}.ds-navigation a{flex-shrink:0}.ds-hero{grid-template-columns:minmax(170px,.7fr) minmax(0,1.3fr);min-height:0}.ds-hero-portrait{min-height:320px}.ds-hero-portrait img{height:350px}.ds-hero-message{display:none}.ds-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.ds-stat:nth-child(2){border-right:0}.ds-stat:nth-child(-n+2){border-bottom:1px solid rgba(116,222,173,.25)}.ds-project-heading{grid-template-columns:1fr auto}.ds-project-heading>p{grid-row:2;grid-column:1/-1}.ds-project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ds-project-image{height:165px}.ds-about{grid-template-columns:1fr 1.4fr}.ds-about>a{grid-column:1/-1;justify-self:start}.ds-contact{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.ds-topbar{width:calc(100% - 16px);margin-top:8px;padding:10px;border-radius:18px}.ds-signature{font-size:1.4rem}.ds-brand-name{font-size:.82rem}.ds-socials{border:0;padding:0}.ds-socials a{width:30px;height:30px}.ds-navigation a{padding:9px 10px;font-size:.65rem}.ds-hero{grid-template-columns:1fr;padding:25px 20px 18px;background-position:center}.ds-hero-copy{grid-row:1}.ds-hero-copy h1{font-size:2.7rem!important}.ds-script-title{font-size:2.55rem!important;white-space:normal}.ds-hero-description{font-size:.94rem}.ds-hero-portrait{grid-row:2;min-height:235px;max-height:280px}.ds-hero-portrait img{height:280px;max-width:280px}.ds-skill-tiles{grid-template-columns:repeat(4,minmax(0,1fr))}.ds-skill-tiles div{min-height:72px}.ds-skill-tiles small{font-size:.51rem}.ds-stats{width:calc(100% - 16px);padding:7px;margin-bottom:24px}.ds-stat{justify-content:flex-start;padding:9px 4px;gap:7px}.ds-stat i{width:39px;height:39px;font-size:1.25rem}.ds-stat strong{font-size:1.25rem}.ds-stat small{font-size:.6rem}.ds-stat:last-child strong{font-size:.7rem}.ds-projects{padding:0 12px 30px}.ds-project-heading{grid-template-columns:1fr;gap:10px}.ds-project-heading h2{font-size:1.9rem!important}.ds-project-heading>p{grid-row:auto}.ds-view-all{justify-self:start}.ds-project-grid{grid-template-columns:1fr;gap:13px}.ds-project-image{height:185px}.ds-card-copy{min-height:110px}.ds-about{grid-template-columns:1fr;gap:13px;padding:25px 20px}.ds-contact{grid-template-columns:1fr;gap:16px;padding:24px 20px}}
+
+/* Final background cleanup: remove the original Massively wallpaper behind scrolling sections. */
+html, body, #wrapper, #wrapper.ds-site {
+  background-image: none !important;
+}
+body, #wrapper.ds-site {
+  background-color: #03150d !important;
+}
+/* Keep the new hero's clean green gradient, not the old wallpaper. */
+.ds-hero {
+  background-image: linear-gradient(120deg, #03150d 0%, #073522 55%, #021109 100%) !important;
+}
+/* Make the statistics and project area opaque so no old wallpaper shows through while scrolling. */
+.ds-stats {
+  background: #032719 !important;
+  backdrop-filter: none !important;
+}
+.ds-projects {
+  position: relative;
+  background: linear-gradient(180deg, #031b11 0%, #02140c 100%) !important;
+}
+.ds-about, .ds-contact {
+  background: #03150d !important;
+}
+
+
+/* Spacing and alignment refinements: prevent inherited justified text from stretching words. */
+.ds-hero-description, .ds-project-heading > p, .ds-card-copy p, .ds-about > p, .ds-contact p {
+  text-align: left !important; word-spacing: normal !important; letter-spacing: normal;
+}
+.ds-hero-description { max-width: 470px !important; line-height: 1.55 !important; margin-top: 0 !important; margin-bottom: 20px !important; }
+.ds-hero-copy { min-width: 0; }
+.ds-script-title { margin-top: 2px !important; margin-bottom: 18px !important; }
+.ds-about > p { line-height: 1.65 !important; }
+
+/* Dedicated Skills & Tools section. The navigation link now lands here. */
+.ds-skills { padding: 42px 4.5% 48px; background: linear-gradient(180deg, #041b11 0%, #03150d 100%); border-top: 1px solid rgba(83,226,159,.2); scroll-margin-top: 24px; }
+.ds-skills-heading { max-width: 760px; margin: 0 auto 24px; text-align: center; }
+.ds-skills-heading > small { color: var(--mint); font-size: .68rem; font-weight: 800; letter-spacing: .16em; }
+.ds-skills-heading h2 { margin: 8px 0 10px !important; color: var(--text) !important; font-size: clamp(1.8rem, 3vw, 2.5rem) !important; line-height: 1.15 !important; letter-spacing: -.035em; text-transform: none !important; }
+.ds-skills-heading h2 span { color: var(--green) !important; }
+.ds-skills-heading p { margin: 0 !important; color: var(--muted); font-size: .92rem; line-height: 1.55; text-align: center !important; }
+.ds-skills-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; max-width: 1500px; margin: 0 auto; }
+.ds-skill-card { min-width: 0; min-height: 136px; padding: 17px 15px; border: 1px solid rgba(104,255,194,.28); border-radius: 16px; background: linear-gradient(145deg, rgba(5,48,31,.88), rgba(1,25,16,.96)); box-shadow: inset 0 1px 0 rgba(255,255,255,.035); transition: transform .18s ease, border-color .18s ease; }
+.ds-skill-card:hover { transform: translateY(-3px); border-color: rgba(138,245,206,.75); }
+.ds-skill-icon { display: inline-grid; place-items: center; min-width: 32px; height: 32px; margin-bottom: 9px; padding: 0 5px; border: 1px solid rgba(138,245,206,.4); border-radius: 10px; color: var(--mint); font-size: 1.05rem; font-weight: 800; }
+.ds-skill-card h3 { margin: 0 0 6px !important; color: #f6fff9 !important; font-size: .95rem !important; line-height: 1.25; text-transform: none !important; }
+.ds-skill-card p { margin: 0 !important; color: #c4d9cd; font-size: .76rem; line-height: 1.45; text-align: left !important; }
+@media (max-width: 1100px) { .ds-skills-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 700px) { .ds-skills { padding: 32px 16px 36px; } .ds-skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; } .ds-skill-card { min-height: 126px; padding: 13px 12px; } .ds-skills-heading { margin-bottom: 19px; } .ds-skills-heading p { font-size: .85rem; } }
+@media (max-width: 360px) { .ds-skills-grid { grid-template-columns: 1fr; } }
+
+/* Dear Sis Data — hero portrait size correction
+   Add this at the VERY END of assets/css/dear-sis-redesign.css.
+   It only changes the hero portrait sizing and responsive behaviour. */
+
+@media (min-width: 1201px) {
+  .ds-hero {
+    grid-template-columns: minmax(340px, .95fr) minmax(380px, 1.15fr) minmax(140px, .5fr) !important;
+    min-height: 590px !important;
+  }
+  .ds-hero-portrait {
+    width: 100% !important;
+    min-height: 510px !important;
+    height: 100% !important;
+    align-self: stretch !important;
+    justify-content: center !important;
+    align-items: end !important;
+  }
+  .ds-hero-portrait img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 560px !important;
+    height: 510px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+  .ds-hero {
+    grid-template-columns: minmax(280px, .9fr) minmax(300px, 1.2fr) minmax(100px, .45fr) !important;
+    min-height: 530px !important;
+  }
+  .ds-hero-portrait {
+    min-height: 440px !important;
+    height: 100% !important;
+    align-self: stretch !important;
+  }
+  .ds-hero-portrait img {
+    width: 100% !important;
+    max-width: 480px !important;
+    height: 440px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .ds-hero {
+    grid-template-columns: minmax(240px, .85fr) minmax(0, 1.15fr) !important;
+    min-height: 0 !important;
+  }
+  .ds-hero-portrait {
+    min-height: 390px !important;
+    height: 100% !important;
+    align-self: stretch !important;
+  }
+  .ds-hero-portrait img {
+    width: 100% !important;
+    max-width: 420px !important;
+    height: 390px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .ds-hero-portrait {
+    min-height: 0 !important;
+    max-height: none !important;
+    height: auto !important;
+  }
+  .ds-hero-portrait img {
+    width: 100% !important;
+    max-width: 420px !important;
+    height: auto !important;
+    max-height: 390px !important;
+    object-fit: contain !important;
+    object-position: center bottom !important;
+  }
+}
+/* Dear Sis Data — hero portrait fills more of the vertical space.
+   Add this file's contents at the VERY END of assets/css/dear-sis-redesign.css.
+   This changes display sizing only; it does not edit your photo or HTML. */
+
+@media (min-width: 1201px) {
+  .ds-hero-portrait {
+    min-height: 620px !important;
+    height: 620px !important;
+    align-self: end !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+  }
+  .ds-hero-portrait img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 590px !important;
+    height: 610px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+  .ds-hero-portrait {
+    min-height: 520px !important;
+    height: 520px !important;
+    align-self: end !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+  }
+  .ds-hero-portrait img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 500px !important;
+    height: 510px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+}
+
+/* Keep the image responsive on tablets and phones. */
+@media (min-width: 601px) and (max-width: 900px) {
+  .ds-hero-portrait {
+    min-height: 390px !important;
+    height: auto !important;
+    align-self: stretch !important;
+  }
+  .ds-hero-portrait img {
+    width: 100% !important;
+    max-width: 420px !important;
+    height: 390px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .ds-hero-portrait {
+    min-height: 0 !important;
+    max-height: none !important;
+    height: auto !important;
+  }
+  .ds-hero-portrait img {
+    width: 100% !important;
+    max-width: 420px !important;
+    height: auto !important;
+    max-height: 390px !important;
+    object-fit: contain !important;
+    object-position: center bottom !important;
+  }
+}
+
+
+/* Dear Sis Data: showcase the custom assistant and keep skill cards balanced. */
+@media (min-width: 1201px) {
+  .ds-project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+}
+.ds-ai-project .ds-project-image img { object-fit: contain; padding: 8px; box-sizing: border-box; background: radial-gradient(circle at center, rgba(0,201,135,.16), rgba(1,25,16,.96)); }
+.ds-ai-project .ds-card-copy p { line-height: 1.5; }
+.ds-skills-grid { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+@media (max-width: 1100px) { .ds-skills-grid { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; } }
+@media (max-width: 700px) { .ds-skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
+@media (max-width: 360px) { .ds-skills-grid { grid-template-columns: 1fr !important; } }
